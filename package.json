@@ -36,7 +36,7 @@
     "react-native-event-listeners": "1.0.3"
   },
   "files": [
-    "dist"
+    "dist/**/*.js"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
