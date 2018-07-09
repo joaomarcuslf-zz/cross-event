@@ -1,6 +1,6 @@
 {
   "name": "cross-event",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Universal EventEmitter API for Node, Browsers and React Native",
   "repository": "https://github.com/joaomarcuslf/corss-event.git",
   "author": "João Marcus Fernandes <jmarcusfernandes@gmail.com>",
