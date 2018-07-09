@@ -1,28 +1,69 @@
 {
+  "parser": "babel-eslint",
   "extends": [
-    "eslint:recommended"
+    "eslint:recommended",
+    "prettier"
   ],
+  "plugins": [
+    "prettier"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "spread": true
+    }
+  },
   "env": {
     "mocha": true,
     "node": true,
-    "browser": true
-  },
-  "globals": {
-    "chai": true,
-    "sinon": true,
-    "expect": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 5,
-    "sourceType": "module"
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true
   },
   "rules": {
-    "no-debugger": "warn",
+    "arrow-parens": ["error", "as-needed"],
+    "comma-dangle": "off",
+    "indent": "off",
+    "keyword-spacing": ["error", {
+      "before": true,
+      "after": true
+    }],
+    "linebreak-style": ["error", "unix"],
+    "max-len": "off",
+    "new-cap": "off",
+    "no-case-declarations": "warn",
     "no-console": "off",
+    "no-debugger": "error",
     "no-multiple-empty-lines": ["error", {
       "max": 1,
       "maxBOF": 1,
       "maxEOF": 1
+    }],
+    "no-useless-escape": "off",
+    "object-curly-spacing": "off",
+    "prefer-template": "error",
+    "prettier/prettier": ["error", {
+      "trailingComma": "es5",
+      "singleQuote": true,
+      "printWidth": 120
+    }],
+    "quote-props": ["error", "as-needed"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "space-after-keywords": "off",
+    "valid-jsdoc": ["error", {
+      "requireReturnType": true,
+      "requireParamDescription": true,
+      "requireReturnDescription": true,
+      "prefer": {
+        "arg": "param",
+        "argument": "param",
+        "class": "constructor",
+        "return": "returns",
+        "virtual": "abstract"
+      }
     }]
   }
 }

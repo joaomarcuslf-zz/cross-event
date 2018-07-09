@@ -5,7 +5,7 @@ const myEmitter = new EventEmitter();
 let events = [];
 
 const removeListener = ({ eventName, callback, element }) => {
-  element.removeListener(eventName, callback)
+  element.removeListener(eventName, callback);
 };
 
 const CrossEvent = {
@@ -31,7 +31,6 @@ const CrossEvent = {
   emit: (eventName, body = '') => {
     return myEmitter.emit(eventName, body);
   },
-}
+};
 
 module.exports = CrossEvent;
-
