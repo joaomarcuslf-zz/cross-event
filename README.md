@@ -17,17 +17,14 @@ yarn add cross-event
 ## Usage Example
 
 ```javascript
-import CrossEvent from 'cross-event';
+import CrossEvent from "cross-event";
 
-/*
- * RECEIVER COMPONENT
- */
-class Receiver extends PureComponent {
+class Receiver extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: 'no data',
+      data: "no data"
     };
 
     this.handler = this.handler.bind(this);
@@ -35,12 +32,12 @@ class Receiver extends PureComponent {
 
   handler(data) {
     this.setState({
-      data,
+      data
     });
   }
 
   componentWillMount() {
-    this.listener = CrossEvent.on('myCustomEvent', this.handler);
+    this.listener = CrossEvent.on("foo", this.handler);
   }
 
   componentWillUnmount() {
@@ -48,25 +45,30 @@ class Receiver extends PureComponent {
   }
 
   render() {
-    return <Text> {this.state.data} </Text>
+    return <Text>{this.state.data || hello}</Text>;
   }
 }
 
-/*
- * SENDER COMPONENT
- */
-const Sender = (props) => (
-  <TouchableHighlight onPress = {() => CrossEvent.emit('myCustomEvent', 'it works!!!')>
-    <Text> Send Event </Text>
-  </TouchableHighlight>
+const App = props => (
+  <View>
+    <TouchableHighlight
+      onPress={() => {
+        CrossEvent.emit("foo", "bar");
+      }}
+    >
+      <Text>Send Event</Text>
+    </TouchableHighlight>
+
+    <Receiver />
+  </View>
 );
 ```
 
 ## API
 
-| static method       | description                                                    |
-| :------------------ | :------------------------------------------------------------- |
-| on                  | return value is the id of the event listener or false on error |
-| rm                  | true on success otherwise false                                |
-| rmAll               | true on success otherwise false                                |
-| emit                | no return value                                                |
+| static method | description                                                    |
+| :------------ | :------------------------------------------------------------- |
+| on            | return value is the id of the event listener or false on error |
+| rm            | true on success otherwise false                                |
+| rmAll         | true on success otherwise false                                |
+| emit          | no return value                                                |
